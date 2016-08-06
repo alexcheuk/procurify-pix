@@ -10,7 +10,7 @@ var app = express();
 var server = require('http').createServer(app)
 var io = require('socket.io').listen(server);
 
-var runningPortNumber = process.env.PORT || 1337;
+var runningPortNumber = process.env.PORT || 8080;
 
 
 // app.configure(function(){
@@ -84,4 +84,6 @@ io.of('/provider').on('connection', function(socket){
 
 
 server.listen(runningPortNumber);
+
+console.log('Server Started on Port: ' + runningPortNumber);
 
