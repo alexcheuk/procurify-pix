@@ -48,13 +48,13 @@ var ProcurifyPIX = {
 			for (var i = 0; i < providers_room.clients().length; i++) {
 				var provider = providers_room.clients()[i];
 
-				provider.emit('ready', {});
+				provider.emit('pix-ready', {});
 			};
 
 			for (var i = 0; i < receivers_room.clients().length; i++) {
 				var recceiver = receivers_room.clients()[i];
 
-				recceiver.emit('ready', {});
+				recceiver.emit('pix-ready', {});
 			};
 		}
 	}
