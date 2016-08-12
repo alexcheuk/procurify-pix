@@ -37,7 +37,7 @@ module.exports = function (io) {
 
                 if(user.room.receiver && user.room.uploaders.length){
                     console.log('Ready!');
-                	io.to(user.roomKey).emit('ready');
+                	io.to(user.roomKey).emit('paired');
                 }
             });
         });
@@ -63,7 +63,7 @@ module.exports = function (io) {
                 var uploader = socket.room.uploaders[i];
 
                 if(uploader.id === socket.id){
-                    console.log('Client Left');
+                    console.log('Uploader Left');
                     socket.room.uploaders.splice(i,1);
                     break;
                 }
