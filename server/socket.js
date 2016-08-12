@@ -45,9 +45,10 @@ module.exports = function (io) {
         });
 
         socket.on('image-upload', function(imageData){
-            console.log('Image Uploaded from Client');
-
             var user = socket.user;
+
+            console.log('Image Uploaded from Client ['+ user.email +']: ', imageData.filename);
+
             socket.room.receiver.emit('image-uploaded', imageData);
         });
 
