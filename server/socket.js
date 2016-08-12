@@ -13,7 +13,7 @@ module.exports = function (io) {
         socket.on('handshake', function(user){
             var role = user.role || 'Uploader';
 
-            console.log('Attempt Handshake: ', user);
+            console.log('Attempt Handshake: ', user.email);
 
             console.log(role + ' Handhsaking: ' + user.email);
 
@@ -47,7 +47,7 @@ module.exports = function (io) {
         socket.on('image-upload', function(imageData){
             var user = socket.user;
 
-            console.log('Image Uploaded from Client ['+ user.email +']: ', imageData.filename);
+            console.log('Image Uploaded from Client ['+ user.email +']: ', imageData);
 
             socket.room.receiver.emit('image-uploaded', imageData);
         });
