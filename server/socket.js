@@ -13,6 +13,8 @@ module.exports = function (io) {
         socket.on('handshake', function(user){
             var role = user.role || 'Uploader';
 
+            console.log('Attempt Handshake: ', user);
+
             console.log(role + ' Handhsaking: ' + user.email);
 
             user.roomKey = getUserKey(user);
